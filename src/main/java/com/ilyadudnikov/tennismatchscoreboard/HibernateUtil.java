@@ -1,6 +1,8 @@
 package com.ilyadudnikov.tennismatchscoreboard;
 
+import com.ilyadudnikov.tennismatchscoreboard.exeptions.DatabaseException;
 import lombok.Getter;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -11,9 +13,9 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
         try {
             // Создание конфигурации и настройка SessionFactory
-            return new Configuration().configure().buildSessionFactory();
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+            return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        } catch (HibernateException e) {
+            throw new DatabaseException("Ошибка при инициализации SessionFactory", e);
         }
     }
 
