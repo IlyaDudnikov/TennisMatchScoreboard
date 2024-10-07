@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<%@include file="errors.jsp"%>
 <form class="new-match-form" action="${pageContext.request.contextPath}/new-match" method="post">
     <h1>СТРАНИЦА НОВЫХ МАТЧЕЙ</h1>
 

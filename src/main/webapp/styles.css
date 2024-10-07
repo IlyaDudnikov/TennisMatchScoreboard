@@ -46,3 +46,21 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.errors {
+    width: 50%;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.errorReason {
+    color: #ea0d3c;
+}
+
+.errorMessage {
+    color: #cf2828;
+}
