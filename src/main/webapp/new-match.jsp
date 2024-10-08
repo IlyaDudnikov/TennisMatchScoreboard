@@ -21,19 +21,19 @@
     <div class="inputs">
         <p>
             <label class="white-color" for="player1">Имя игрока 1</label><br>
-            <input id="player1" type="text" name="player1" placeholder="Игрок 1" required
-            value="<% if (request.getParameter("player1") != null &&
-            !request.getParameter("player1").isBlank()) {
-                out.println(request.getParameter("player1"));
+            <input id="player1" type="text" name="player1Name" placeholder="Игрок 1" required
+            value="<% if (request.getParameter("player1Name") != null &&
+            !request.getParameter("player1Name").isBlank()) {
+                out.println(request.getParameter("player1Name"));
             }%>">
         </p>
 
         <p>
             <label class="white-color" for="player2">Имя игрока 2</label><br>
-            <input id="player2" type="text" name="player2" placeholder="Игрок 2" required
-            value="<% if (request.getParameter("player2") != null &&
-                !request.getParameter("player2").isBlank()) {
-            out.println(request.getParameter("player2"));
+            <input id="player2" type="text" name="player2Name" placeholder="Игрок 2" required
+            value="<% if (request.getParameter("player2Name") != null &&
+                !request.getParameter("player2Name").isBlank()) {
+            out.println(request.getParameter("player2Name"));
         }%>">
         </p>
     </div>

@@ -33,6 +33,9 @@ dependencies {
   compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
   annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
   implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.17.2'
+  implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.16'
+  testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.6'
+
 
 }
 
