@@ -21,7 +21,7 @@ public abstract class Score<T> {
         return playerNumber == 1 ? playerScores.get(0) : playerScores.get(1);
     }
 
-    private void setPlayerScore(int playerNumber, T playerScore) {
+    public void setPlayerScore(int playerNumber, T playerScore) {
         playerScores.set(playerNumber, playerScore);
     }
 
