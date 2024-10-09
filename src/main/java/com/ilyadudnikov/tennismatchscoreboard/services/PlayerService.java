@@ -1,6 +1,6 @@
 package com.ilyadudnikov.tennismatchscoreboard.services;
 
-import com.ilyadudnikov.tennismatchscoreboard.Dao.Impl.PlayerDaoImpl;
+import com.ilyadudnikov.tennismatchscoreboard.dao.Impl.PlayerDaoImpl;
 import com.ilyadudnikov.tennismatchscoreboard.exeptions.DatabaseException;
 import com.ilyadudnikov.tennismatchscoreboard.models.Player.Player;
 

@@ -1,6 +1,6 @@
-package com.ilyadudnikov.tennismatchscoreboard.Dao.Impl;
+package com.ilyadudnikov.tennismatchscoreboard.dao.Impl;
 
-import com.ilyadudnikov.tennismatchscoreboard.Dao.PlayerDao;
+import com.ilyadudnikov.tennismatchscoreboard.dao.PlayerDao;
 import com.ilyadudnikov.tennismatchscoreboard.exeptions.DatabaseException;
 import com.ilyadudnikov.tennismatchscoreboard.models.Player.Player;
 import org.hibernate.HibernateException;

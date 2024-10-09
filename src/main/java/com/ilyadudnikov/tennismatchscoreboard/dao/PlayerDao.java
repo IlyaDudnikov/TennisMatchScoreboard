@@ -1,4 +1,4 @@
-package com.ilyadudnikov.tennismatchscoreboard.Dao;
+package com.ilyadudnikov.tennismatchscoreboard.dao;
 
 import com.ilyadudnikov.tennismatchscoreboard.HibernateUtil;
 import com.ilyadudnikov.tennismatchscoreboard.models.Player.Player;
