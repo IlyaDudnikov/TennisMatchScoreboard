@@ -15,7 +15,7 @@ public class RegularGameScore extends Score<RegularGamePlayerPoints> {
             setPlayerScore(playerNumber, playerPoints.next());
         } else if (playerPoints.ordinal() == RegularGamePlayerPoints.FORTY.ordinal()) {
             // 40:X
-            RegularGamePlayerPoints opponentPoints = getOpponentScore(playerNumber == 1 ? 0 : 1);
+            RegularGamePlayerPoints opponentPoints = getOpponentScore(playerNumber);
 
             if (opponentPoints.ordinal() <= RegularGamePlayerPoints.THIRTY.ordinal()) {
                 // 40:0, 40:15, 40:30
