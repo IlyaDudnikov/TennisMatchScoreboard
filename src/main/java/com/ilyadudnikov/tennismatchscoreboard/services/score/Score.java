@@ -25,10 +25,10 @@ public abstract class Score<T> {
         playerScores.set(playerNumber, playerScore);
     }
 
-    private void setOpponentScore(int playerNumber, T opponentScore) {
+    public void setOpponentScore(int playerNumber, T opponentScore) {
         int opponentNumber = playerNumber == 1 ? 0 : 1;
         playerScores.set(opponentNumber, opponentScore);
     }
 
-    abstract State pointWon(int playerNumber);
+    abstract public State pointWon(int playerNumber);
 }

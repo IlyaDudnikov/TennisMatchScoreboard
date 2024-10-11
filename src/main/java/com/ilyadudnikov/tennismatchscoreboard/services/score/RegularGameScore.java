@@ -7,7 +7,7 @@ public class RegularGameScore extends Score<RegularGamePlayerPoints> {
     }
 
     @Override
-    State pointWon(int playerNumber) {
+    public State pointWon(int playerNumber) {
         RegularGamePlayerPoints playerPoints = getPlayerScore(playerNumber);
 
         if (playerPoints.ordinal() <= RegularGamePlayerPoints.THIRTY.ordinal()) {
@@ -25,7 +25,7 @@ public class RegularGameScore extends Score<RegularGamePlayerPoints> {
                 setPlayerScore(playerNumber, playerPoints.next());
             } else {
                 // 40:AD
-                setPlayerScore(playerNumber == 1 ? 0 : 1, RegularGamePlayerPoints.FORTY);
+                setOpponentScore(playerNumber, RegularGamePlayerPoints.FORTY);
             }
         } else if (playerPoints.ordinal() == RegularGamePlayerPoints.ADVANTAGE.ordinal()) {
             return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;

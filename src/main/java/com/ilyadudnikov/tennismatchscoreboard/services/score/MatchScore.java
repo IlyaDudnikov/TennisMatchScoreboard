@@ -1,7 +1,7 @@
 package com.ilyadudnikov.tennismatchscoreboard.services.score;
 
 public class MatchScore extends Score<Integer> {
-    SetScore currentSet = new SetScore();
+    private SetScore currentSet = new SetScore();
 
     @Override
     protected Integer getZeroScore() {
@@ -9,7 +9,7 @@ public class MatchScore extends Score<Integer> {
     }
 
     @Override
-    State pointWon(int playerNumber) {
+    public State pointWon(int playerNumber) {
         State setState = currentSet.pointWon(playerNumber);
 
         if (setState.ordinal() == State.PLAYER_ONE_WON.ordinal()) {
@@ -21,7 +21,10 @@ public class MatchScore extends Score<Integer> {
         return State.ONGOING;
     }
 
-    State setWon(int playerNumber) {
+    private State setWon(int playerNumber) {
+        currentSet = new SetScore();
+
+        setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
         if (getPlayerScore(playerNumber) == 2) {
             return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;
         }

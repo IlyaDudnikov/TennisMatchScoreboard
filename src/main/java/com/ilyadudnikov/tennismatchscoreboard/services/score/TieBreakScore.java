@@ -8,7 +8,7 @@ public class TieBreakScore extends Score<Integer> {
     }
 
     @Override
-    State pointWon(int playerNumber) {
+    public State pointWon(int playerNumber) {
         setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
         Integer playerScore = getPlayerScore(playerNumber);
 

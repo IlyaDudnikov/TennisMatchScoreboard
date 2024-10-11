@@ -2,9 +2,9 @@ package com.ilyadudnikov.tennismatchscoreboard.services.score;
 
 public class SetScore extends Score<Integer> {
 
-    RegularGameScore currentGame = new RegularGameScore();
-    boolean tieBreak = false;
-    TieBreakScore currentTieBreak;
+    private RegularGameScore currentGame = new RegularGameScore();
+    private boolean tieBreak = false;
+    private TieBreakScore currentTieBreak;
 
     @Override
     protected Integer getZeroScore() {
@@ -12,7 +12,7 @@ public class SetScore extends Score<Integer> {
     }
 
     @Override
-    State pointWon(int playerNumber) {
+    public State pointWon(int playerNumber) {
         if (tieBreak) {
             return pointWonInTieBreak(playerNumber);
         }
@@ -20,7 +20,7 @@ public class SetScore extends Score<Integer> {
         return pointWonInGame(playerNumber);
     }
 
-    State pointWonInGame(int playerNumber) {
+    private State pointWonInGame(int playerNumber) {
         State gameState = currentGame.pointWon(playerNumber);
 
         if (gameState.ordinal() == State.PLAYER_ONE_WON.ordinal()) {
@@ -32,7 +32,7 @@ public class SetScore extends Score<Integer> {
         return State.ONGOING;
     }
 
-    State pointWonInTieBreak(int playerNumber) {
+    private State pointWonInTieBreak(int playerNumber) {
         State tieBreakState = currentTieBreak.pointWon(playerNumber);
 
         if (tieBreakState.ordinal() == State.PLAYER_ONE_WON.ordinal()) {
@@ -46,7 +46,9 @@ public class SetScore extends Score<Integer> {
         return State.ONGOING;
     }
 
-    State gameWon(int playerNumber) {
+    private State gameWon(int playerNumber) {
+        currentGame = new RegularGameScore();
+
         setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
         Integer playerScore = getPlayerScore(playerNumber);
 
