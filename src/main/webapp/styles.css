@@ -64,3 +64,234 @@ button:hover {
 .errorMessage {
     color: #cf2828;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*width: 100%;*/
+    background-color: #2C3E50;
+}
+
+.tennisScoreboard {
+    padding: 20px;
+    width: 90%;
+    height: 65%;
+    background-color: #E67E22;
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    border-color: white;
+    margin: 0;
+}
+
+.headTennis {
+    color: white;
+    font-size: 10vh;
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+
+.flex-parent {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-top: 10px;
+}
+
+/* .width25percents {
+    margin: 3px;
+    width: 25%;
+    height: 100%;
+    background-color: aqua;
+} */
+
+.previous-sets {
+    width: 30%;
+}
+
+.previous-sets-color {
+    background-color: #0056b3;
+}
+
+.player {
+    width: 30%;
+}
+
+.player-color {
+    background-color: #007bff;;
+}
+
+.set {
+    width: 10%;
+}
+
+.set-color {
+    background-color: #2C3E50;
+}
+
+.points {
+    width: 15%;
+}
+
+.points-color {
+    background-color: #721c24;
+}
+
+.point-buttons {
+    width: 15%;
+    /* background-color: #cf2828; */
+}
+
+.head-column {
+    padding: 5px;
+    color: white;
+    font-size: 4vh;
+    border-radius: 10px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.all-available-space {
+    flex-grow: 1;
+}
+
+.width33percents {
+    width: 33%;
+}
+
+.all-width {
+    width: 100%;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.point-box {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(52, 121, 56);
+    width: 90%;
+    max-width: 90%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17vh;
+    box-sizing: border-box;
+}
+
+.player-name-box {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(22, 88, 0);
+    width: 90%;
+    max-width: 90%;
+    color: rgb(86, 255, 39);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vh;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+span {
+    position: absolute;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.indentation {
+    padding: 5px;
+    height: 4.5vh;
+}
+
+.flex-space-around {
+    justify-content: space-around;
+}
+
+.button-won-point {
+    border-radius: 20px;
+    width: 100%;
+    height: 33%;
+    background-color: #1d3397;
+    border: #00054d solid 3px;
+    color:rgb(255, 255, 255);
+    font-size: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.button-won-point:hover {
+    background-color: white;
+    border-color: rgb(211, 211, 211);
+    color: #1d3397;
+}
+
+.match-finish-block {
+    width: 90%;
+    padding: 0 20px;
+    background-color: #E67E22;
+}
+
+/* .remove-top-margin {
+    margin-top: -15px;
+} */
+
+.winner {
+    font-size: 6vh;
+    color: white;
+    text-align: center;
+}
+
+.player-winner {
+    font-size: 4vh;
+    color: rgb(86, 255, 39);
+    background-color: rgb(22, 88, 0);
+    text-align: center;
+    margin: 0 -20px;
+    padding: 3px 0;
+}
+
+.continue-button {
+    font-size: 4vh;
+    background-color: #1d3397;
+    border: #007bff solid 3px;
+    color: white;
+    text-align: center;
+    margin: 0 -20px;
+    padding: 5px 0;
+    display: block;
+    /* width: 100%; */
+    text-decoration: none;
+}
+
+.continue-button:hover {
+    background-color: white;
+    border-color: rgb(211, 211, 211);
+    color: #1d3397;
+}
+
+
+
+
