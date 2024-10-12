@@ -1,5 +1,6 @@
 package com.ilyadudnikov.tennismatchscoreboard.services;
 
+import com.ilyadudnikov.tennismatchscoreboard.exeptions.MatchNotFoundException;
 import com.ilyadudnikov.tennismatchscoreboard.models.Match.Match;
 import com.ilyadudnikov.tennismatchscoreboard.models.Player.Player;
 
@@ -40,6 +41,15 @@ public class OngoingMatchesService {
         match.setPlayer1(player1);
         match.setPlayer2(player2);
         return match;
+    }
+
+    public Match getCurrentMatch(UUID uuid) {
+        Match currenMatch = currentMatches.get(uuid);
+        if (currenMatch == null) {
+            throw new MatchNotFoundException("Match with this uuid not found. UUID: " + uuid.toString());
+        }
+
+        return currenMatch;
     }
 
 }

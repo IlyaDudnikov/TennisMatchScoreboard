@@ -1,7 +1,15 @@
 package com.ilyadudnikov.tennismatchscoreboard.services.score;
 
+import com.ilyadudnikov.tennismatchscoreboard.dto.FinishedSetScore;
+import lombok.Getter;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MatchScore extends Score<Integer> {
     private SetScore currentSet = new SetScore();
+    @Getter
+    private final List<FinishedSetScore> finishedSetScores = new ArrayList<>();
 
     @Override
     protected Integer getZeroScore() {
@@ -22,6 +30,8 @@ public class MatchScore extends Score<Integer> {
     }
 
     private State setWon(int playerNumber) {
+        addSetScoreToFinishedSetScore(currentSet);
+
         currentSet = new SetScore();
 
         setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
@@ -30,5 +40,13 @@ public class MatchScore extends Score<Integer> {
         }
 
         return State.ONGOING;
+    }
+
+    void addSetScoreToFinishedSetScore(SetScore setScore) {
+        FinishedSetScore finishedSetScore = new FinishedSetScore(
+                setScore.getPlayerScore(0),
+                setScore.getPlayerScore(1)
+        );
+        finishedSetScores.add(finishedSetScore);
     }
 }

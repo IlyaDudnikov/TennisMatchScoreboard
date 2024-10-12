@@ -1,6 +1,7 @@
 package com.ilyadudnikov.tennismatchscoreboard.models.Match;
 
 import com.ilyadudnikov.tennismatchscoreboard.models.Player.Player;
+import com.ilyadudnikov.tennismatchscoreboard.services.score.MatchScore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +33,5 @@ public class Match {
     private Player winner;
 
     @Transient
-    MatchScore matchScore;
+    private MatchScore matchScore;
 }

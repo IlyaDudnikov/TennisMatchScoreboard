@@ -23,7 +23,8 @@
                 <div class="head-column previous-sets-color">PREVIOUS SETS</div>
                 <div class="flex-row all-available-space all-width">
                     <div class="width33percents flex-column">
-                        <div class="point-box all-available-space"><span>5</span></div>
+                        <div class="point-box all-available-space"><span>
+                        </span></div>
                         <div class="point-box all-available-space"><span>6</span></div>
                     </div>
                     <div class="all-available-space flex-column">

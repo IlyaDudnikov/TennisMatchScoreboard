@@ -1,4 +1,4 @@
-package com.ilyadudnikov.tennismatchscoreboard.servlets;
+package com.ilyadudnikov.tennismatchscoreboard.controllers;
 
 import com.ilyadudnikov.tennismatchscoreboard.services.OngoingMatchesService;
 import jakarta.servlet.ServletException;
@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @WebServlet("/new-match")
-public class NewMatchServlet extends HttpServlet {
+public class NewMatchController extends HttpServlet {
     OngoingMatchesService ongoingMatchesService;
 
     @Override
