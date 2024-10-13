@@ -1,6 +1,7 @@
 package com.ilyadudnikov.tennismatchscoreboard.services.score;
 
-import com.ilyadudnikov.tennismatchscoreboard.dto.FinishedSetScore;
+import com.ilyadudnikov.tennismatchscoreboard.dto.GameScoreDto;
+import com.ilyadudnikov.tennismatchscoreboard.dto.SetScoreDto;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 public class MatchScore extends Score<Integer> {
     private SetScore currentSet = new SetScore();
     @Getter
-    private final List<FinishedSetScore> finishedSetScores = new ArrayList<>();
+    private final List<SetScoreDto> finishedSetScores = new ArrayList<>();
 
     @Override
     protected Integer getZeroScore() {
@@ -42,11 +43,24 @@ public class MatchScore extends Score<Integer> {
         return State.ONGOING;
     }
 
-    void addSetScoreToFinishedSetScore(SetScore setScore) {
-        FinishedSetScore finishedSetScore = new FinishedSetScore(
+    private void addSetScoreToFinishedSetScore(SetScore setScore) {
+        SetScoreDto finishedSetScore = new SetScoreDto(
                 setScore.getPlayerScore(0),
                 setScore.getPlayerScore(1)
         );
         finishedSetScores.add(finishedSetScore);
     }
+
+    public SetScoreDto getCurrentSetScore() {
+        Integer scorePlayer1InCurrentSet = currentSet.getPlayerScore(0);
+        Integer scorePlayer2InCurrentSet = currentSet.getPlayerScore(1);
+
+        return new SetScoreDto(scorePlayer1InCurrentSet, scorePlayer2InCurrentSet);
+    }
+
+    public GameScoreDto getCurrentGameScore() {
+        return currentSet.getCurrentGameScore();
+    }
+
+
 }

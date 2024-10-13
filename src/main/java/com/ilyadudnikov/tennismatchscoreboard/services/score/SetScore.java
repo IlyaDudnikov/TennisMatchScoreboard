@@ -1,5 +1,7 @@
 package com.ilyadudnikov.tennismatchscoreboard.services.score;
 
+import com.ilyadudnikov.tennismatchscoreboard.dto.GameScoreDto;
+
 public class SetScore extends Score<Integer> {
 
     private RegularGameScore currentGame = new RegularGameScore();
@@ -69,5 +71,12 @@ public class SetScore extends Score<Integer> {
         }
 
         return State.ONGOING;
+    }
+
+    public GameScoreDto getCurrentGameScore() {
+        RegularGamePlayerPoints scorePlayer1InCurrentGame = currentGame.getPlayerScore(0);
+        RegularGamePlayerPoints scorePlayer2InCurrentGame = currentGame.getPlayerScore(1);
+
+        return new GameScoreDto(scorePlayer1InCurrentGame, scorePlayer2InCurrentGame);
     }
 }
