@@ -2,6 +2,7 @@ package com.ilyadudnikov.tennismatchscoreboard.services.score;
 
 import com.ilyadudnikov.tennismatchscoreboard.dto.GameScoreDto;
 import com.ilyadudnikov.tennismatchscoreboard.dto.SetScoreDto;
+import com.ilyadudnikov.tennismatchscoreboard.dto.TieBreakScoreDto;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -62,5 +63,11 @@ public class MatchScore extends Score<Integer> {
         return currentSet.getCurrentGameScore();
     }
 
+    public boolean isTieBreak() {
+        return currentSet.isTieBreak();
+    }
 
+    public TieBreakScoreDto getTieBreakScore() {
+        return currentSet.getCurrentTieBreakScore();
+    }
 }

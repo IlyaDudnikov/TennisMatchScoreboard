@@ -9,6 +9,7 @@
 <%@ page import="com.ilyadudnikov.tennismatchscoreboard.models.Match.Match" %>
 <%@ page import="com.ilyadudnikov.tennismatchscoreboard.dto.SetScoreDto" %>
 <%@ page import="com.ilyadudnikov.tennismatchscoreboard.dto.GameScoreDto" %>
+<%@ page import="com.ilyadudnikov.tennismatchscoreboard.dto.TieBreakScoreDto" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -76,9 +77,20 @@
             <div class="points flex-column">
                 <div class="head-column points-color">POINTS</div>
                 <div class="all-available-space all-width flex-column">
-                    <% GameScoreDto currentGameScore = matchScore.getCurrentGameScore(); %>
-                    <div class="point-box all-available-space"><span><%=currentGameScore.getPlayer1Score()%></span></div>
-                    <div class="point-box all-available-space"><span><%=currentGameScore.getPlayer2Score()%></span></div>
+                    <% String player1ScoreInCurrentGameOrTieBreak, player2ScoreInCurrentGameOrTieBreak;
+                    if (matchScore.isTieBreak()) {
+                        TieBreakScoreDto currentTieBreakScore = matchScore.getTieBreakScore();
+                        player1ScoreInCurrentGameOrTieBreak = currentTieBreakScore.getPlayer1Score().toString();
+                        player2ScoreInCurrentGameOrTieBreak = currentTieBreakScore.getPlayer2Score().toString();
+                    } else {
+                        GameScoreDto currentGameScore = matchScore.getCurrentGameScore();
+                        player1ScoreInCurrentGameOrTieBreak = currentGameScore.getPlayer1Score().toString();
+                        player2ScoreInCurrentGameOrTieBreak = currentGameScore.getPlayer2Score().toString();
+                    }
+
+                    %>
+                    <div class="point-box all-available-space"><span><%=player1ScoreInCurrentGameOrTieBreak%></span></div>
+                    <div class="point-box all-available-space"><span><%=player2ScoreInCurrentGameOrTieBreak%></span></div>
                 </div>
             </div>
 
@@ -86,12 +98,12 @@
                 <% if (match.getWinner() == null) { %>
                     <div class="indentation"></div>
                     <div class="all-available-space all-width flex-column flex-space-around">
-                        <form class="form-won-point" action="${pageContext.request.contextPath}/match-score" method="post">
+                        <form class="form-won-point" action="${pageContext.request.contextPath}/match-score?uuid=<%=request.getParameter("uuid")%>" method="post">
                             <input type="hidden" name="id" value="<%=match.getPlayer1().getId()%>">
                             <button class="button-won-point" type="submit">Player 1<br> won point</button>
                         </form>
 
-                        <form class="form-won-point" action="${pageContext.request.contextPath}/new-match">
+                        <form class="form-won-point" action="${pageContext.request.contextPath}/match-score?uuid=<%=request.getParameter("uuid")%>" method="post">
                             <input type="hidden" name="id" value="<%=match.getPlayer2().getId()%>">
                             <button type="submit" class="button-won-point">Player 2<br> won point</button>
                         </form>

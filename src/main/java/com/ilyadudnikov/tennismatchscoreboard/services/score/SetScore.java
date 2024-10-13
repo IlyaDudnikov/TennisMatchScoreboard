@@ -1,10 +1,13 @@
 package com.ilyadudnikov.tennismatchscoreboard.services.score;
 
 import com.ilyadudnikov.tennismatchscoreboard.dto.GameScoreDto;
+import com.ilyadudnikov.tennismatchscoreboard.dto.TieBreakScoreDto;
+import lombok.Getter;
 
 public class SetScore extends Score<Integer> {
 
     private RegularGameScore currentGame = new RegularGameScore();
+    @Getter
     private boolean tieBreak = false;
     private TieBreakScore currentTieBreak;
 
@@ -78,5 +81,12 @@ public class SetScore extends Score<Integer> {
         RegularGamePlayerPoints scorePlayer2InCurrentGame = currentGame.getPlayerScore(1);
 
         return new GameScoreDto(scorePlayer1InCurrentGame, scorePlayer2InCurrentGame);
+    }
+
+    public TieBreakScoreDto getCurrentTieBreakScore() {
+        Integer player1ScoreInCurrentTieBreak = currentTieBreak.getPlayerScore(0);
+        Integer player2ScoreInCurrentTieBreak = currentTieBreak.getPlayerScore(1);
+
+        return new TieBreakScoreDto(player1ScoreInCurrentTieBreak, player2ScoreInCurrentTieBreak);
     }
 }
