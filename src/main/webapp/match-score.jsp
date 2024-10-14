@@ -118,7 +118,7 @@
             <hr class="remove-top-margin">
             <div class="winner">WINNER</div>
             <div class="player-winner"><%=match.getWinner().getName()%></div>
-            <a class="continue-button" href="#">CONTINUE</a>
+            <a class="continue-button" href="${pageContext.request.contextPath}/matches">CONTINUE</a>
         </div>
     <% } %>
 

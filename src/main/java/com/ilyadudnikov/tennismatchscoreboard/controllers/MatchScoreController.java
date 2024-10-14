@@ -2,6 +2,7 @@ package com.ilyadudnikov.tennismatchscoreboard.controllers;
 
 import com.ilyadudnikov.tennismatchscoreboard.exeptions.MatchNotFoundException;
 import com.ilyadudnikov.tennismatchscoreboard.models.Match.Match;
+import com.ilyadudnikov.tennismatchscoreboard.services.FinishedMatchesPersistenceService;
 import com.ilyadudnikov.tennismatchscoreboard.services.MatchScoreCalculationService;
 import com.ilyadudnikov.tennismatchscoreboard.services.OngoingMatchesService;
 import jakarta.servlet.ServletException;
@@ -40,6 +41,9 @@ public class MatchScoreController extends HttpServlet {
             long idPlayerWhoWonPoint = getIdFromString(idString);
             Match match = OngoingMatchesService.getInstance().getCurrentMatch(uuid);
             MatchScoreCalculationService.updateScore(match, idPlayerWhoWonPoint);
+            if (match.getWinner() != null) {
+                FinishedMatchesPersistenceService.save(match);
+            }
             req.setAttribute("match", match);
             req.setAttribute("uuid", uuid);
             req.getRequestDispatcher("/match-score.jsp").forward(req, resp);
