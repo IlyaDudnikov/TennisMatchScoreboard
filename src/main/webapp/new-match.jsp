@@ -21,7 +21,7 @@
     <div class="inputs">
         <p>
             <label class="white-color" for="player1">Имя игрока 1</label><br>
-            <input id="player1" type="text" name="player1Name" placeholder="Игрок 1" required
+            <input class="input-player-name" id="player1" type="text" name="player1Name" placeholder="Игрок 1" required
             value="<% if (request.getParameter("player1Name") != null &&
             !request.getParameter("player1Name").isBlank()) {
                 out.println(request.getParameter("player1Name"));
@@ -30,7 +30,7 @@
 
         <p>
             <label class="white-color" for="player2">Имя игрока 2</label><br>
-            <input id="player2" type="text" name="player2Name" placeholder="Игрок 2" required
+            <input class="input-player-name" id="player2" type="text" name="player2Name" placeholder="Игрок 2" required
             value="<% if (request.getParameter("player2Name") != null &&
                 !request.getParameter("player2Name").isBlank()) {
             out.println(request.getParameter("player2Name"));
@@ -40,5 +40,10 @@
 
     <button type="submit">Начать</button>
 </form>
+
+<div class="all-matches-button">
+    <a href="${pageContext.request.contextPath}/matches">Все матчи</a>
+</div>
+
 </body>
 </html>

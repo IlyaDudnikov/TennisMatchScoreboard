@@ -29,7 +29,7 @@ h1 {
     text-align: center;
 }
 
-input[type="text"] {
+.input-player-name {
     width: 80%;
 }
 
@@ -297,6 +297,149 @@ span {
     color: #1d3397;
 }
 
+.matches-content {
+    width: 80%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #E67E22;
+}
 
+.form-filter-by-player-name {
+    background-color: #9dd9fd;
+    display: inline;
+    /*color: white;*/
+    padding: 10px;
+    margin-top: 20px;
+    border: #007bff solid 3px;
+    border-radius: 15px;
+}
+
+.form-filter-by-player-name input {
+    width: 30%;
+}
+
+.table-matches {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    background-color: rgb(22, 88, 0);
+    /*background-color: #F0F0F0;*/
+    color: white;
+    /*border-radius: 15px;*/
+    border-collapse: collapse;
+}
+
+.table-matches th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.table-loser {
+    color: red;
+}
+
+.table-winner {
+    color: #00ff00;
+}
+
+.table-matches colgroup col:first-child {
+    width: 20%;
+}
+
+.table-matches colgroup col:nth-child(2), .table-matches colgroup col:nth-child(3) {
+    width: 40%;
+}
+
+.pagination-block {
+    background-color: #007bff;
+    padding: 10px 20px;
+    margin: 30px -20px;
+    display: flex;
+}
+
+.pagination {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-numbers {
+    display: inline;
+    margin: 0 15px;
+}
+
+.page-number {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #00054d;
+    color: white;
+    padding: 5px;
+    margin: 1px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.page-number:hover {
+    background-color: white;
+    color: #00054d;
+}
+
+.current-page {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #04ff58;
+    color: #104d02;
+    font-weight: 700;
+    padding: 5px;
+    margin: 1px;
+    border-radius: 5px;
+    text-align: center;
+}
+.current-page:hover {
+    background-color: #104d02;
+    color: #04ff58;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.new-match-link {
+    margin-top: 30px;
+    padding: 10px 15px;
+    background-color: #005e09;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+.new-match-link:hover {
+    background-color: white;
+    color: #005e09;
+}
+
+.all-matches-button {
+    margin-top: 50px;
+    display: flex;
+}
+
+.all-matches-button a {
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 35px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.all-matches-button a:hover {
+    background-color: #0056b3;
+}
 
 

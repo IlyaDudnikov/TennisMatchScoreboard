@@ -1,5 +1,6 @@
 package com.ilyadudnikov.tennismatchscoreboard.controllers;
 
+import com.ilyadudnikov.tennismatchscoreboard.exeptions.DatabaseException;
 import com.ilyadudnikov.tennismatchscoreboard.exeptions.MatchNotFoundException;
 import com.ilyadudnikov.tennismatchscoreboard.models.Match.Match;
 import com.ilyadudnikov.tennismatchscoreboard.services.FinishedMatchesPersistenceService;
@@ -49,6 +50,8 @@ public class MatchScoreController extends HttpServlet {
             req.getRequestDispatcher("/match-score.jsp").forward(req, resp);
         } catch (IllegalArgumentException e) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+        } catch (DatabaseException e) {
+            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
 

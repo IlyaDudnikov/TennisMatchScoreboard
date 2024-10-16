@@ -22,6 +22,11 @@ public class NewMatchController extends HttpServlet {
     }
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/new-match.jsp").forward(req, resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String player1Name = req.getParameter("player1Name");
         String player2Name = req.getParameter("player2Name");
